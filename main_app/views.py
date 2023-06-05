@@ -6,7 +6,7 @@ from django.shortcuts import render
 cats = [
   {'name': 'Lolo', 'breed': 'tabby', 'description': 'furry little demon', 'age': 3},
   {'name': 'Sachi', 'breed': 'calico', 'description': 'gentle and loving', 'age': 2},
-  {'name': 'Tsuki', 'breed': 'tuxedo', 'description': 'gentle, loving, best cat around', 'age': 2},
+  {'name': 'Tsuki', 'breed': 'tuxedo', 'description': 'furry little demon, but also gentle, loving, best cat around', 'age': 2},
 ]
 
 
