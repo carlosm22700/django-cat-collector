@@ -18,9 +18,14 @@ def cats_index(request):
 
 def cats_detail(request, cat_id):
     cat = Cat.objects.get(id=cat_id)
+    #generate a list of ids for al the toys associated with a cat
+    id_list = cat.toys.all().values_list('id')
+
+    #generate a list of toys while excluding the one containing ids included in the id_list
+    toys_cat_doesnt_have = Toy.objects.exclude(id__in=id_list)
     #instantiate Feeding Form to be rendered
     feeding_form = FeedingForm()
-    return render(request, "main_app/cats/detail.html", {"cat": cat, 'feeding_form': feeding_form})
+    return render(request, "main_app/cats/detail.html", {"cat": cat, 'feeding_form': feeding_form, 'toys': toys_cat_doesnt_have})
 
 def add_feeding(request, cat_id):
     form = FeedingForm(request.POST)
