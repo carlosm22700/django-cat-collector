@@ -40,6 +40,10 @@ def assoc_toy(request, cat_id, toy_id):
     Cat.objects.get(id=cat_id).toys.add(toy_id)
     return redirect('detail', cat_id=cat_id)
 
+def unassoc_toy(request, cat_id, toy_id):
+    Cat.objects.get(id=cat_id).toys.remove(toy_id)
+    return redirect('detail', cat_id=cat_id)
+
 class CatCreate(CreateView):
     model = Cat
     fields = ['name', 'breed', 'description', 'age']
